@@ -31,6 +31,14 @@ Each matrix is formed as a difference of two neighbouring frames.
 Each vector represents the movement of a particular feature that was moved between two frames.
 And for getting the curl and divergence we need one more matrix to represent the difference between movements of features.
 
+# Algorithms used
+
+Feature detection can be done using Shi-Tomasi corner detection if one is interested in getting particular features, but here we assume the whole video represents a single texture so we decided to use optical flow.
+More specifically, the matrix of vector movements can be calculated with Farnebacks algorithm.
+Using this technique limits us to non-moving cameras, only spatial movement, and no lighting angle changes.
+The magnitude and angle was calculated by transforming cartesian vectors to the polar system.
+Divergence and curl are calculated with dot and cross products, respectively, of these vectors.
+
 # Results
 
 ```
